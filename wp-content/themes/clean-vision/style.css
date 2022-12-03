@@ -1,0 +1,315 @@
+/*
+* Theme Name: Clean Vision
+* Theme URI: https://www.eaglevisionit.com/downloads/clean-vision/ 
+* Author: Eagle Vision IT
+* Author URI: https://www.eaglevisionit.com/ 
+* Description: Clean Vision is a clean, elegant free child theme. It is fully compatible with Gutenberg WordPress Blocks and Live Customizer. To create a clean layout, you can easily modify the multiple section through Rise blocks - Gutenberg blocks and global settings through theme customizer like Top header, Header options, Custom Menu, Social links, Site identity, tagline, font family, colors, typography etc. Also, you can import 30+ starter templates from pages editor quickly. Quick support in case any confusion: https://www.eaglevisionit.com/contact-us/
+* Template: visionwp
+* Version: 1.0.1
+* Tags: left-sidebar, right-sidebar, wide-blocks, block-styles, grid-layout, two-columns, flexible-header, custom-colors, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, threaded-comments, translation-ready, news, education, entertainment   
+* Text Domain: clean-vision
+* Tested up to: 6.0
+* Requires PHP: 5.6
+* License: GNU General Public License v2 or later
+* License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+.visionwp-top-bar-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.visionwp-social-menu-wrapper ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.visionwp-social-menu-wrapper > ul li {
+    padding: 0;
+    margin: 0;
+    margin-right: 10px;
+}
+
+.visionwp-social-menu-wrapper > ul li:last-child {
+    margin-right: 0;
+}
+
+.visionwp-social-menu-wrapper ul a span,
+*[id^='menu-social-'] a span {
+    display: none;
+}
+
+.visionwp-social-menu-wrapper > ul li span {
+    color: #fff;
+    display: none;
+}
+
+.visionwp-social-menu-wrapper {
+    display: flex;
+}
+body .visionwp-top-bar .visionwp-top-bar-info ul li:first-child {
+    margin-left: 0;
+}
+
+/* social menu */
+
+*[id^='menu-social-'] {
+    display: flex;
+}
+
+*[id^='menu-social-']  li:before {
+    display: none;
+}
+
+*[id^='menu-social-'] li a {
+    color: transparent !important;
+    font-size: 0 !important;
+    height: 0 !important;
+    width: 0 !important;
+    line-height: 0;
+}
+
+.visionwp-social-menu-wrapper ul a span,
+*[id^='menu-social-'] a span {
+    display: none;
+}
+
+.visionwp-social-menu-wrapper ul a:before,
+*[id^='menu-social-'] a:before{
+    display: flex;
+    font-family: fontAwesome;
+    background: #fff;
+    padding: 10px;
+    width: 25px;
+    height: 25px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    transition: all .3s;
+    font-size: 16px;
+
+}
+
+*[id^='menu-social-'] li:first-child a:before {
+    margin-left: 0;
+}
+
+
+.visionwp-social-menu-wrapper ul a[href*="facebook.com"]:before,
+.visionwp-social-menu-wrapper ul a[href*="fb.me"]:before,
+*[id^='menu-social-'] a[href*="facebook.com"]:before,
+*[id^='menu-social-'] a[href*="fb.me"]:before {
+    content: "\f09a";
+    color: #1877f2;
+}
+
+.visionwp-social-menu-wrapper ul a[href^="tel:"]:before,
+*[id^='menu-social-'] a:before {
+    content: "\f095";
+}
+
+.visionwp-social-menu-wrapper ul a[href*="facebook.com"]:hover:before,
+.visionwp-social-menu-wrapper ul a[href*="fb.me"]:hover:before, 
+.visionwp-social-menu-wrapper-style-2 .visionwp-social-menu-wrapper ul a[href*="facebook.com"]:before,
+.visionwp-social-menu-wrapper-style-2 .visionwp-social-menu-wrapper ul a[href*="fb.me"]:before {
+    background: #1877f2;
+    color: #fff;
+}
+
+.visionwp-social-menu-wrapper a[href*="twitter.com"]:before,
+*[id^='menu-social-'] a[href*="twitter.com"]:before {
+    content: "\f099";
+    color: #1da1f2;
+}
+
+.visionwp-social-menu-wrapper a[href*="twitter.com"]:hover:before,
+.visionwp-social-menu-wrapper-style-2 .visionwp-social-menu-wrapper a[href*="twitter.com"]:before {
+    background: #1da1f2;
+    color: #fff;
+}
+
+.visionwp-social-menu-wrapper a[href*="linkedin.com"]:before,
+*[id^='menu-social-'] a[href*="linkedin.com"]:before {
+    content: "\f0e1";
+    color: #007bb5;
+}
+
+.visionwp-social-menu-wrapper a[href*="linkedin.com"]:hover:before,
+.visionwp-social-menu-wrapper-style-2 .visionwp-social-menu-wrapper a[href*="linkedin.com"]:before {
+    background: #007bb5;
+    color: #fff;
+}
+
+.visionwp-social-menu-wrapper a[href*="wordpress.org"]:before,
+*[id^='menu-social-'] a[href*="wordpress.org"]:before {
+    content: "\f19a";
+    color: #0073aa;
+}
+
+.visionwp-social-menu-wrapper a[href*="wordpress.org"]:hover:before,
+.visionwp-social-menu-wrapper-style-2 .visionwp-social-menu-wrapper a[href*="wordpress.org"]:before {
+    background: #0073aa;
+    color: #fff;
+}
+
+
+.visionwp-social-menu-wrapper a[href*="instagram.com"]:before,
+*[id^='menu-social-'] a[href*="instagram.com"]:before {
+    content: "\f16d";
+    color: #c32aa3;
+}
+
+.visionwp-social-menu-wrapper a[href*="instagram.com"]:hover:before,
+.visionwp-social-menu-wrapper-style-2 .visionwp-social-menu-wrapper a[href*="instagram.com"]:before {
+    background: #c32aa3;
+    color: #fff;
+}
+
+.visionwp-social-menu-wrapper a[href*="youtube.com"]:before,
+*[id^='menu-social-'] a[href*="youtube.com"]:before {
+    content: "\f167";
+    color: #ff0000;
+}
+
+.visionwp-social-menu-wrapper a[href*="youtube.com"]:hover:before, 
+.visionwp-social-menu-wrapper-style-2 .visionwp-social-menu-wrapper a[href*="youtube.com"]:before {
+    background: #ff0000;
+    color: #fff;
+}
+
+
+.visionwp-social-menu-wrapper a[href*="vimeo.com"]:before,
+*[id^='menu-social-'] a[href*="vimeo.com"]:before {
+    content: "\f27d";
+    color: #1ab7ea;
+}
+
+.visionwp-social-menu-wrapper a[href*="vimeo.com"]:hover:before, 
+.visionwp-social-menu-wrapper-style-2 .visionwp-social-menu-wrapper a[href*="vimeo.com"]:before {
+    background: #1ab7ea;
+    color: #fff;
+}
+
+.visionwp-social-menu-wrapper a[href*="dribbble.com"]:before,
+*[id^='menu-social-'] a[href*="dribbble.com"]:before {
+    content: "\f17d";
+    color: #ea4c89;
+}
+
+.visionwp-social-menu-wrapper a[href*="dribbble.com"]:hover:before, 
+.visionwp-social-menu-wrapper-style-2 .visionwp-social-menu-wrapper a[href*="dribbble.com"]:before {
+    background: #ea4c89;
+    color: #fff;
+}
+
+.visionwp-social-menu-wrapper a[href*="aboutme.google.com"]:before {
+    content: "\f0d5";
+    color: #db4437;
+}
+
+.visionwp-social-menu-wrapper a[href*="aboutme.google.com"]:hover:before, 
+.visionwp-social-menu-wrapper-style-2 .visionwp-social-menu-wrapper a[href*="aboutme.google.com"]:before {
+    background: #db4437;
+    color: #fff;
+}
+
+.visionwp-social-menu-wrapper a[href*="vine.com"]:before {
+    content: "\f1ca";
+    color: #00b489;
+}
+
+.visionwp-social-menu-wrapper a[href*="vine.com"]:hover:before, 
+.visionwp-social-menu-wrapper-style-2 .visionwp-social-menu-wrapper a[href*="vine.com"]:before {
+    background: #00b489;
+    color: #fff;
+}
+
+.visionwp-social-menu-wrapper a[href*="whatsapp.com"]:before {
+    content: "\f232";
+    color: #25d366;
+}
+
+.visionwp-social-menu-wrapper a[href*="whatsapp.com"]:hover:before, 
+.visionwp-social-menu-wrapper-style-2 .visionwp-social-menu-wrapper a[href*="whatsapp.com"]:before {
+    background: #25d366;
+    color: #fff;
+}
+
+.visionwp-social-menu-wrapper a[href*="wechat.com"]:before {
+    content: "\f1d7";
+    color: #25d366;
+}
+
+.visionwp-social-menu-wrapper a[href*="wechat.com"]:hover:before, 
+.visionwp-social-menu-wrapper-style-2 .visionwp-social-menu-wrapper a[href*="wechat.com"]:before {
+    background: #25d366;
+    color: #fff;
+}
+
+.visionwp-social-menu-wrapper a[href*="line.me"]:before {
+    content: "\f0e5";
+    color: #25d366;
+}
+
+.visionwp-social-menu-wrapper a[href*="line.me"]:hover:before, 
+.visionwp-social-menu-wrapper-style-2 .visionwp-social-menu-wrapper a[href*="line.me"]:before {
+    background: #25d366;
+    color: #fff;
+}
+
+.visionwp-social-menu-wrapper a[href*="snapchat.com"]:before {
+    content: "\f2ac";
+    color: #fffc00;
+}
+
+.visionwp-social-menu-wrapper a[href*="snapchat.com"]:hover:before, 
+.visionwp-social-menu-wrapper-style-2 .visionwp-social-menu-wrapper a[href*="snapchat.com"]:before {
+    background: #fffc00;
+    color: #fff;
+}
+
+.visionwp-social-menu-wrapper a[href*="mailto:"]:before {
+    content: "\f0e0";
+    color: #ff0000;
+}
+
+.visionwp-social-menu-wrapper a[href*="mailto:"]:hover:before, 
+.visionwp-social-menu-wrapper-style-2 .visionwp-social-menu-wrapper a[href*="mailto:"]:before {
+    background: #ff0000;
+    color: #fff;
+}
+
+
+
+body .visionwp-content-wrapper main.site-main .visionwp-content-post .visionwp-content {
+    background: #fafbfc;
+    padding: 0;
+
+}
+
+body .visionwp-content-wrapper main.site-main .visionwp-content-post .visionwp-content .visionwp-post-title,
+body .visionwp-content-wrapper main.site-main .visionwp-content-post .visionwp-content .visionwp-post-category,
+body .visionwp-content-wrapper main.site-main .visionwp-content-post .visionwp-content .visionwp-post-meta, 
+body .visionwp-post-excerpt {
+    padding: 0 15px;
+} 
+body .visionwp-post-excerpt {
+    padding-bottom: 15px;
+}
+
+@media (max-width:  767px) {
+    .visionwp-social-menu-wrapper, .visionwp-top-bar-wrapper {
+        justify-content: center;
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding: 5px 0;
+    }
+    .menu-toggler span, .sliding-menu-toggler span {
+        background: #323232 !important;
+    }
+}
