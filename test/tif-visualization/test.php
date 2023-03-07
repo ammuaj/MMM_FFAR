@@ -104,8 +104,8 @@
                     <div class="col-sm-7">
                         <select class="form-control form-control-sm" id="siteSelect1">
                             <option selected="" value="site-ardec">Michigan</option>
-                            <option value="Oklahoma">Cortez</option>
-                            <option value="Wyoming">Idalia</option>
+                            <option value="site-cortez">Oklahoma</option>
+                            <option value="site-idalia">Wyominglia</option>
                         </select>
                     </div>
                     <div class="col-sm-3">
@@ -189,9 +189,9 @@
                     <label for="siteSelect2" class="col-sm-2">Site:</label>
                     <div class="col-sm-7">
                         <select class="form-control form-control-sm" id="siteSelect2">
-                            <option selected="" value="site-ardec">CSU-ARDEC</option>
-                            <option value="site-cortez">Cortez</option>
-                            <option value="site-idalia">Idalia</option>
+                        <option selected="" value="site-ardec">Michigan</option>
+                            <option value="site-cortez">Oklahoma</option>
+                            <option value="site-idalia">Wyominglia</option>
                         </select>
                     </div>
                     <div class="col-sm-3">
@@ -213,6 +213,7 @@
                     <div class="col-sm-9">
 
                         <select class="form-control form-control-sm" id="bandSelect2">
+                           
                             <option  value="et">ET</option>
                             <option selected="" value="lst">LST</option>
                             <option value="ndvi">NDVI</option>
@@ -266,9 +267,9 @@
                     <label for="siteSelect3" class="col-sm-2">Site:</label>
                     <div class="col-sm-7">
                         <select class="form-control form-control-sm" id="siteSelect3">
-                            <option selected="" value="site-ardec">CSU-ARDEC</option>
-                            <option value="site-cortez">Cortez</option>
-                            <option value="site-idalia">Idalia</option>
+                        <option selected="" value="site-ardec">Michigan</option>
+                            <option value="site-cortez">Oklahoma</option>
+                            <option value="site-idalia">Wyominglia</option>
                         </select>
                     </div>
                     <div class="col-sm-3">
@@ -343,9 +344,9 @@
                     <label for="siteSelect4" class="col-sm-2">Site:</label>
                     <div class="col-sm-7">
                         <select class="form-control form-control-sm" id="siteSelect4">
-                            <option selected="" value="site-ardec">CSU-ARDEC</option>
-                            <option value="site-cortez">Cortez</option>
-                            <option value="site-idalia">Idalia</option>
+                        <option selected="" value="site-ardec">Michigan</option>
+                            <option value="site-cortez">Oklahoma</option>
+                            <option value="site-idalia">Wyominglia</option>
                         </select>
                     </div>
                     <div class="col-sm-3">
