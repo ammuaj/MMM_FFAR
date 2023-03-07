@@ -105,7 +105,7 @@
                         <select class="form-control form-control-sm" id="siteSelect1">
                             <option selected="" value="site-ardec">Michigan</option>
                             <option value="site-cortez">Oklahoma</option>
-                            <option value="site-idalia">Wyominglia</option>
+                            <option value="site-idalia">Wyoming</option>
                         </select>
                     </div>
                     <div class="col-sm-3">
@@ -191,7 +191,7 @@
                         <select class="form-control form-control-sm" id="siteSelect2">
                         <option selected="" value="site-ardec">Michigan</option>
                             <option value="site-cortez">Oklahoma</option>
-                            <option value="site-idalia">Wyominglia</option>
+                            <option value="site-idalia">Wyoming</option>
                         </select>
                     </div>
                     <div class="col-sm-3">
@@ -269,7 +269,7 @@
                         <select class="form-control form-control-sm" id="siteSelect3">
                         <option selected="" value="site-ardec">Michigan</option>
                             <option value="site-cortez">Oklahoma</option>
-                            <option value="site-idalia">Wyominglia</option>
+                            <option value="site-idalia">Wyoming</option>
                         </select>
                     </div>
                     <div class="col-sm-3">
@@ -346,7 +346,7 @@
                         <select class="form-control form-control-sm" id="siteSelect4">
                         <option selected="" value="site-ardec">Michigan</option>
                             <option value="site-cortez">Oklahoma</option>
-                            <option value="site-idalia">Wyominglia</option>
+                            <option value="site-idalia">Wyoming</option>
                         </select>
                     </div>
                     <div class="col-sm-3">
