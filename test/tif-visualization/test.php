@@ -103,9 +103,9 @@
                     <label for="siteSelect1" class="col-sm-2">Site:</label>
                     <div class="col-sm-7">
                         <select class="form-control form-control-sm" id="siteSelect1">
-                            <option selected="" value="site-ardec">CSU-ARDEC</option>
-                            <option value="site-cortez">Cortez</option>
-                            <option value="site-idalia">Idalia</option>
+                            <option selected="" value="site-ardec">Michigan</option>
+                            <option value="Oklahoma">Cortez</option>
+                            <option value="Wyoming">Idalia</option>
                         </select>
                     </div>
                     <div class="col-sm-3">
