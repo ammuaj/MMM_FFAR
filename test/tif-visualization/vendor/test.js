@@ -1,0 +1,36 @@
+const setLabel = (lbl, val) => {
+  const label = $(`#slider-${lbl}-label`);
+  label.text(val);
+  const slider = $(`#slider-div .${lbl}-slider-handle`);
+  const rect = slider[0].getBoundingClientRect();
+  label.offset({
+    top: rect.top - 30,
+    left: rect.left
+  });
+}
+
+const setLabels = (values) => {
+  setLabel("min", values[0]);
+  setLabel("max", values[1]);
+}
+
+
+$('#ex2').slider().on('slide', function(ev) {
+  setLabels(ev.value);
+});
+const resetValue = (values) => {
+
+
+  $("#ex2").attr('data-value',values);
+  $("#ex2").attr('data-slider-value',values);
+  $("#ex2").attr('data-slider-min',values[0]);
+  $("#ex2").attr('data-slider-max',values[1]);
+  $("#ex2").attr('value',values);
+  $("#ex2").attr('max',values[1]);
+    setLabel("min", values[0]);
+    setLabel("max", values[1]);
+
+
+}
+
+setLabels($('#ex2').attr("data-value").split(","));

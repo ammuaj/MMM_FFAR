@@ -1,0 +1,427 @@
+<html lang="en">
+<head>
+    <title>FineET: ET Visualization</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="bootstrap/css/11.0.2.bootstrap-slider.css"/>
+    <link rel="stylesheet" href="vendor/custom_style.css"/>
+    <script src="bootstrap/jquery/3.5.1.slim.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="bootstrap/jquery/11.0.2.bootstrap-slider.min.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" xmlns="http://www.w3.org/1999/html"
+          xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+          xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+          xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+          xmlns="http://www.w3.org/1999/html"/>
+
+    <link rel="stylesheet" href="./vendor/custom_style.css">
+    <!--script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script-->
+    <script src="leaflet13.js"></script>
+
+    <!--<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"-->
+    <!--      integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="-->
+    <!--      crossorigin=""/>-->
+    <!--&lt;!&ndash; Make sure you put this AFTER Leaflet's CSS &ndash;&gt;-->
+    <!--<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"-->
+    <!--        integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="-->
+    <!--        crossorigin=""></script> -->
+
+    <!--script src="https://unpkg.com/leaflet@0.7.7/dist/leaflet.js"></script-->
+    <script src="vendor/geotiff.js"></script>
+    <script src="vendor/plotty.js"></script>
+
+    <script src="leaflet-geotiff.js"></script>
+    <script src="map-controller.js"></script>
+    <script src="slider-control.js"></script>
+</head>
+<body>
+
+<div class="container-fluid h-100">
+    <div class="row h-100">
+        <div id="leftmenu" class="col-2" style="float:left;">
+
+            <form id = "form_map_1">
+
+                <select id="selectColorScale">
+                    <option selected="" value="rainbow">Rainbow</option>
+                    <option value="viridis">Viridis</option>
+                    <option value="greys">Greys</option>
+                    <option value="hsv">HSV</option>
+                    <option value="earth">Earth</option>
+                    <option value="magma">Magma</option>
+                    <option value="plasma">Plasma</option>
+                    <option value="blackbody">Blackbody</option>
+                    <option value="greys">Greys</option>
+                    <option value="greens">Greens</option>
+                </select>
+
+                <div class="form-group row">
+<!--                    <a class = "col-sm-3 small" href="http://fineet.cs.colostate.edu/">Back</a>-->
+                    <label for="splitMap" class="col-sm-8 col-form-label"> How many maps?</label>
+                    <div class="col-sm-4">
+                        <select class="form-control form-control-sm" id="splitMap">
+                            <option selected="" value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="4">Four</option>
+
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="tif_alpha" class="col-sm-4 col-form-label">Opacity</label>
+                    <div class=" col-sm-5">
+                        <input class=" form-range" type="range" name="weight" id="tif_alpha" value="80" min="0"
+                               max="255">
+                    </div>
+                    <div class=" col-sm-3">
+                        <output id="tif_alpha_disp"></output>
+                        </duv>
+                    </div>
+
+                    <!--Clip the image using a polygon <button type="button" onclick="toggleClip()">Toggle</button></p> -->
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <hr>
+                    </div>
+                    <div class="col-sm-4">
+                        <b class="font-weight-bold"> MAP-1 </b>
+
+                    </div>
+                    <div class="col-sm-4">
+                        <hr>
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+                    <label for="siteSelect1" class="col-sm-2">Site:</label>
+                    <div class="col-sm-7">
+                        <select class="form-control form-control-sm" id="siteSelect1">
+                            <option selected="" value="site-ardec">CSU-ARDEC</option>
+                            <option value="site-cortez">Cortez</option>
+                            <option value="site-idalia">Idalia</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-3">
+                        <a id="siteLink1" href="https://coagmet.colostate.edu/station/ftc03_main.html" target="_blank">
+                            visit</a>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="selectDate1" class="col-sm-3">Date:</label>
+                    <div class="col-sm-9">
+
+                        <select class="form-control form-control-sm" id="selectDate1">
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="bandSelect1" class="col-sm-3">Band:</label>
+                    <div class="col-sm-9">
+
+                        <select class="form-control form-control-sm" id="bandSelect1">
+                            <option selected="" value="et">ET</option>
+                            <option value="lst">LST</option>
+                            <option value="ndvi">NDVI</option>
+                            <option value="openet">OPENET</option>
+                        </select>
+                    </div>
+                </div>
+                <img id="colorScaleImage1" class="colorScaleImageClass"  src=""/>
+
+                <output style="float: left; margin-top:0px;" id="range_ET_disp_colorascale_min1"></output>
+                <output style="float: right; margin-top:0px;margin-right:0px;"
+                        id="range_ET_disp_colorascale_max1"></output>
+
+                <div id="separateSlider">
+                    <label for="range_ET">Min: </label>
+                    <input class="slider-width" type="range" name="weight" id="range_ET" value="1" min="1" max="100">
+                    <output id="range_ET_disp"></output>
+
+                    <label for="range_ET">Max: </label>
+                    <input class="slider-width" type="range" name="weight" id="range_ET_Max" value="1" min="1"
+                           max="100">
+                    <output id="range_ET_disp_Max"></output>
+                </div>
+
+                <div class="form-group">
+                    <div id="slider-outer-div1">
+                        <div id="slider-max-label1" class="slider-label"></div>
+                        <div id="slider-min-label1" class="slider-label"></div>
+                        <div id="slider-div1">
+
+                            <div>
+                                <input id="double_slider1" type="text" data-slider-min="-1"
+                                       data-slider-max="14" data-slider-value="[-1,14]"
+                                       data-slider-tooltip="top"/>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+            <form id="form_map_2">
+
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <hr>
+                    </div>
+                    <div class="col-sm-4">
+                        <b class="font-weight-bold"> MAP-2 </b>
+
+                    </div>
+                    <div class="col-sm-4">
+                        <hr>
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+                    <label for="siteSelect2" class="col-sm-2">Site:</label>
+                    <div class="col-sm-7">
+                        <select class="form-control form-control-sm" id="siteSelect2">
+                            <option selected="" value="site-ardec">CSU-ARDEC</option>
+                            <option value="site-cortez">Cortez</option>
+                            <option value="site-idalia">Idalia</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-3">
+                        <a id="siteLink2" href="https://coagmet.colostate.edu/station/ftc03_main.html" target="_blank">
+                            visit</a>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="selectDate2" class="col-sm-3">Date:</label>
+                    <div class="col-sm-9">
+
+                        <select class="form-control form-control-sm" id="selectDate2">
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="bandSelect2" class="col-sm-3">Band:</label>
+                    <div class="col-sm-9">
+
+                        <select class="form-control form-control-sm" id="bandSelect2">
+                            <option  value="et">ET</option>
+                            <option selected="" value="lst">LST</option>
+                            <option value="ndvi">NDVI</option>
+                            <option value="openet">OPENET</option>
+                        </select>
+                    </div>
+                </div>
+                <img id="colorScaleImage2" class="colorScaleImageClass"  src=""/>
+
+                <output style="float: left; margin-top:0px;" id="range_ET_disp_colorascale_min2"></output>
+                <output style="float: right; margin-top:0px;margin-right:0px;"
+                        id="range_ET_disp_colorascale_max2"></output>
+
+
+                <div class="form-group">
+                    <div id="slider-outer-div2">
+                        <div id="slider-max-label2" class="slider-label"></div>
+                        <div id="slider-min-label2" class="slider-label"></div>
+                        <div id="slider-div2">
+
+                            <div>
+                                <input id="double_slider2" type="text" data-slider-min="-1"
+                                       data-slider-max="14" data-slider-value="[-1,14]"
+                                       data-slider-tooltip="top"/>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </form>
+            <form id="form_map_3">
+
+
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <hr>
+                    </div>
+                    <div class="col-sm-4">
+                        <b class="font-weight-bold"> MAP-3 </b>
+
+                    </div>
+                    <div class="col-sm-4">
+                        <hr>
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+                    <label for="siteSelect3" class="col-sm-2">Site:</label>
+                    <div class="col-sm-7">
+                        <select class="form-control form-control-sm" id="siteSelect3">
+                            <option selected="" value="site-ardec">CSU-ARDEC</option>
+                            <option value="site-cortez">Cortez</option>
+                            <option value="site-idalia">Idalia</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-3">
+                        <a id="siteLink3" href="https://coagmet.colostate.edu/station/ftc03_main.html" target="_blank">
+                            visit</a>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="selectDate3" class="col-sm-3">Date:</label>
+                    <div class="col-sm-9">
+
+                        <select class="form-control form-control-sm" id="selectDate3">
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="bandSelect3" class="col-sm-3">Band:</label>
+                    <div class="col-sm-9">
+
+                        <select class="form-control form-control-sm" id="bandSelect3">
+                            <option  value="et">ET</option>
+                            <option value="lst">LST</option>
+                            <option selected="" value="ndvi">NDVI</option>
+                            <option value="openet">OPENET</option>
+                        </select>
+                    </div>
+                </div>
+                <img id="colorScaleImage3" class="colorScaleImageClass" src=""/>
+
+                <output style="float: left; margin-top:0px;" id="range_ET_disp_colorascale_min3"></output>
+                <output style="float: right; margin-top:0px;margin-right:0px;"
+                        id="range_ET_disp_colorascale_max3"></output>
+
+
+                <div class="form-group row">
+                    <div id="slider-outer-div3">
+                        <div id="slider-max-label3" class="slider-label"></div>
+                        <div id="slider-min-label3" class="slider-label"></div>
+                        <div id="slider-div3">
+
+                            <div>
+                                <input id="double_slider3" type="text" data-slider-min="-1"
+                                       data-slider-max="14" data-slider-value="[-1,14]"
+                                       data-slider-tooltip="top"/>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+            <form id="form_map_4">
+
+
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <hr>
+                    </div>
+                    <div class="col-sm-4">
+                        <b class="font-weight-bold"> MAP-4 </b>
+
+                    </div>
+                    <div class="col-sm-4">
+                        <hr>
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+                    <label for="siteSelect4" class="col-sm-2">Site:</label>
+                    <div class="col-sm-7">
+                        <select class="form-control form-control-sm" id="siteSelect4">
+                            <option selected="" value="site-ardec">CSU-ARDEC</option>
+                            <option value="site-cortez">Cortez</option>
+                            <option value="site-idalia">Idalia</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-3">
+                        <a id="siteLink4" href="https://coagmet.colostate.edu/station/ftc03_main.html" target="_blank">
+                            visit</a>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="selectDate4" class="col-sm-3">Date:</label>
+                    <div class="col-sm-9">
+
+                        <select class="form-control form-control-sm" id="selectDate4">
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="bandSelect4" class="col-sm-3">Band:</label>
+                    <div class="col-sm-9">
+
+                        <select class="form-control form-control-sm" id="bandSelect4">
+                            <option  value="et">ET</option>
+                            <option value="lst">LST</option>
+                            <option value="ndvi">NDVI</option>
+                            <option selected="" value="openet">OPENET</option>
+                        </select>
+                    </div>
+                </div>
+                <img id="colorScaleImage4" class="colorScaleImageClass"  src=""/>
+
+                <output style="float: left; margin-top:0px;" id="range_ET_disp_colorascale_min4"></output>
+                <output style="float: right; margin-top:0px;margin-right:0px;"
+                        id="range_ET_disp_colorascale_max4"></output>
+
+
+                <div class="form-group row">
+                    <div id="slider-outer-div4">
+                        <div id="slider-max-label4" class="slider-label"></div>
+                        <div id="slider-min-label4" class="slider-label"></div>
+                        <div id="slider-div4">
+
+                            <div>
+                                <input id="double_slider4" type="text" data-slider-min="-1"
+                                       data-slider-max="14" data-slider-value="[-1,14]"
+                                       data-slider-tooltip="top"/>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </form>
+
+
+        </div>
+        <div class="col-10 h-100">
+            <div id="mapid" style="width:100%; height:100%;float:left;">
+
+            </div>
+
+            <div id="secondMapid" style="width:49%; height:100%;float:right; visibility:hidden; ">
+            </div>
+
+            <div id="thirdMapid" style="width:49%; height:48%;float:left; margin-top:20px; visibility:hidden; ">
+            </div>
+
+            <div id="fourthMapid" style="width:49%; height:48%;float:right; margin-top:20px; visibility:hidden; ">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="actions.js">
+</script>
+</body>
+</html>
+

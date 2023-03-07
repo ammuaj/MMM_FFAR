@@ -1,0 +1,68 @@
+.map{
+width:35%;
+}
+.maps{
+display:block;
+width:400px;
+}
+.slider-width{
+width:100px !important;
+
+}
+#selectColorScale{
+visibility:hidden;
+display:none;
+}
+
+
+.colorScaleImageClass{
+width:130px !important;
+
+ height:10px;
+ margin-top:5px;
+ margin-left:10px;
+ margin-bottom:10px;
+}
+
+#separateSlider{
+visibility:hidden;
+display:none;
+}
+#range_ET_disp_colorascale_min{
+visibility:visible;
+}
+#range_ET_disp_colorascale_max{
+visibility:visible;
+}
+
+#slider-div {
+  display: flex;
+  flex-direction: row;
+  margin-top: 0px;
+
+}
+
+
+
+#slider-div>div {
+  margin-right:0px;
+}
+
+.slider-label {
+  position: absolute;
+  background-color: #eee;
+  padding: 4px;
+  font-size: 0.75rem;
+}
+#form_map_2{
+visibility:visible;
+margin-top:-10px;
+}
+#form_map_3{
+visibility:visible;
+margin-top:-10px;
+}
+#form_map_4{
+visibility:visible;
+margin-top:-10px;
+}
